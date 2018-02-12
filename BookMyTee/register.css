@@ -1,0 +1,32 @@
+body{
+	background-image: url(backgr3.jpg);
+
+}
+.logbg{
+	background-image:url(backgr.jpg) ;}
+
+.logno{
+	background-image:none;}
+
+
+#loginfield{
+	background-image:url(backgr.jpg) ;
+
+
+
+	}
+	#bookhead{
+		font-family: serif;
+		font-size: 40px;
+		color: indigo;
+		font-style: bold;
+
+
+	}
+	#reglogin2{
+		background-image: none;
+	}
+
+#sub{
+	margin-left: 100px;
+}

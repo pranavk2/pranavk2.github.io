@@ -1,0 +1,397 @@
+<html>
+<head>
+<title>RegistrationPage</title>
+<link rel="stylesheet" href="register.css"/>
+<script>
+  
+  function ready()
+{
+	if (typeof(localStorage) == 'undefined' ) {
+            alert('Your browser does not support HTML5 localStorage. Try upgrading.');
+        } else {
+            getAllItems(); }
+}
+function addUser()
+{	
+	
+		var name=document.getElementById("registerusername").value;
+		var pass=document.getElementById("registerpassword").value;
+		var fullname=document.getElementById("name").value;
+		
+	
+	var newDate = new Date();
+    var itemId = newDate.getTime();
+    var values = new Array();
+	values.push(name);
+	values.push(pass);
+	
+	var r=0;
+	if(name=="Username"||name=="username"||name=="UserName")
+		{
+		alert("This username is not available");
+	
+		}
+	else
+		{
+    if (name != "" && pass != "" && fullname!="" ) {
+        try {	
+                var logLength = localStorage.length-1;
+
+				for (i = 0; i <= logLength; i++) 
+				{
+					var itemKey = localStorage.key(i);
+					var arr = localStorage.getItem(itemKey);
+					arr = arr.split(";"); //create an array of the values
+					var ex_user = arr[0];
+					if(ex_user==name)
+					{
+						r=1;
+						alert("Username not available.. Try some other !");
+						
+					}	
+				}
+				if(r==0)
+				{
+					localStorage.setItem(itemId, values.join(';'));
+					sessionStorage.setItem("bulls","off");
+					sessionStorage.setItem("celtics","off");
+					sessionStorage.setItem("clippers","off");
+					sessionStorage.setItem("csk","off");
+					sessionStorage.setItem("dd","off");
+			sessionStorage.setItem("heats","off");
+			sessionStorage.setItem("iniesta","off");
+			sessionStorage.setItem("k11p","off");
+			sessionStorage.setItem("kaka","off");
+			sessionStorage.setItem("kkr","off");
+			sessionStorage.setItem("lakers","off");
+			sessionStorage.setItem("lampard","off");
+			sessionStorage.setItem("mata","off");
+			sessionStorage.setItem("mi","off");
+			sessionStorage.setItem("nets","off");
+			sessionStorage.setItem("newyork","off");
+			sessionStorage.setItem("orleans","off");
+			sessionStorage.setItem("pacers","off");
+			sessionStorage.setItem("pwi","off");
+			sessionStorage.setItem("ramos","off");
+			sessionStorage.setItem("rcb","off");
+			sessionStorage.setItem("ronaldo","off");
+			sessionStorage.setItem("rooney","off");
+			sessionStorage.setItem("scholes","off");
+			sessionStorage.setItem("srh","off");
+			sessionStorage.setItem("torres","off");
+			sessionStorage.setItem("xavi","off");
+					
+					
+					alert("You're successfully registered !");
+					window.location.href="store.htm";
+				}
+            } catch (e) {
+							//if (e == QUOTA_EXCEEDED_ERR) {
+                            //alert('Quota exceeded!');
+                        //}
+                    }
+    } else {
+              alert("All fields are required.");
+           }
+		}
+}
+function logout()
+
+{
+	var i,itemKey,value,r=0;
+	for(i=0;i<sessionStorage.length;i++)
+		{
+		itemKey=sessionStorage.key(i);
+		value=sessionStorage.getItem(itemKey);
+		if(value=="on")
+			{
+			r=1;
+			}
+		}
+	if(r==1)
+		{
+  var answer=confirm("Your cart will be emptied.. You sure want to logout?");
+	if(answer==true)		
+{			
+	sessionStorage.removeItem("bulls");
+			sessionStorage.removeItem("celtics");
+			sessionStorage.removeItem("clippers");
+			sessionStorage.removeItem("csk");
+			sessionStorage.removeItem("dd");
+			sessionStorage.removeItem("heats");
+			sessionStorage.removeItem("iniesta");
+			sessionStorage.removeItem("k11p");
+			sessionStorage.removeItem("kaka");
+			sessionStorage.removeItem("kkr");
+			sessionStorage.removeItem("lakers");
+			sessionStorage.removeItem("lampard");
+			sessionStorage.removeItem("mata");
+			sessionStorage.removeItem("mi");
+			sessionStorage.removeItem("nets");
+			sessionStorage.removeItem("newyork");
+			sessionStorage.removeItem("orleans");
+			sessionStorage.removeItem("pacers");
+			sessionStorage.removeItem("pwi");
+			sessionStorage.removeItem("ramos");
+			sessionStorage.removeItem("rcb");
+			sessionStorage.removeItem("ronaldo");
+			sessionStorage.removeItem("rooney");
+			sessionStorage.removeItem("scholes");
+			sessionStorage.removeItem("srh");
+			sessionStorage.removeItem("torres");
+			sessionStorage.removeItem("xavi");
+	sessionStorage.setItem("username","");
+	alert("successfully logged out");
+	window.location.href="aboutus.htm";
+}
+	else
+		{
+			alert("Please Checkout !!");	
+			window.location.href="book.htm"
+		}
+		}
+	else
+		{
+		sessionStorage.removeItem("bulls");
+			sessionStorage.removeItem("celtics");
+			sessionStorage.removeItem("clippers");
+			sessionStorage.removeItem("csk");
+			sessionStorage.removeItem("dd");
+			sessionStorage.removeItem("heats");
+			sessionStorage.removeItem("iniesta");
+			sessionStorage.removeItem("k11p");
+			sessionStorage.removeItem("kaka");
+			sessionStorage.removeItem("kkr");
+			sessionStorage.removeItem("lakers");
+			sessionStorage.removeItem("lampard");
+			sessionStorage.removeItem("mata");
+			sessionStorage.removeItem("mi");
+			sessionStorage.removeItem("nets");
+			sessionStorage.removeItem("newyork");
+			sessionStorage.removeItem("orleans");
+			sessionStorage.removeItem("pacers");
+			sessionStorage.removeItem("pwi");
+			sessionStorage.removeItem("ramos");
+			sessionStorage.removeItem("rcb");
+			sessionStorage.removeItem("ronaldo");
+			sessionStorage.removeItem("rooney");
+			sessionStorage.removeItem("scholes");
+			sessionStorage.removeItem("srh");
+			sessionStorage.removeItem("torres");
+			sessionStorage.removeItem("xavi");
+		sessionStorage.setItem("username","");
+		alert("successfully logged out");
+		window.location.href="aboutus.htm";
+		
+		}
+}
+function getAllItems() {
+    var timeLog = ""; //the variable that will hold our html
+    var i = 0;
+    var logLength = localStorage.length-1; //how many items are in the database starting with zero
+	var name=document.getElementById("username").value;
+	var pass=document.getElementById("password").value;
+  	var r=0;
+  	if(name==""||name=="Username"||pass=="")
+	{
+	alert("Fields: blank or invalid");
+	}
+  	else
+  		{
+	//now we are going to loop through each item in the database
+    for (i = 0; i <= logLength; i++) {
+		
+        //lets setup some variables for the key and values
+        var itemKey = localStorage.key(i);
+        var values = localStorage.getItem(itemKey);
+        values = values.split(";"); //create an array of the values
+        var project = values[0];
+        
+        var date = values[1];
+		
+		if(name==project && date==pass)
+		{
+			r=1;
+		}
+    }
+	if(r==1)
+	{
+		sessionStorage.setItem("username",name);
+		sessionStorage.setItem("username",name);
+			sessionStorage.setItem("bulls","off");
+			sessionStorage.setItem("celtics","off");
+			sessionStorage.setItem("clippers","off");
+			sessionStorage.setItem("csk","off");
+			sessionStorage.setItem("dd","off");
+			sessionStorage.setItem("heats","off");
+			sessionStorage.setItem("iniesta","off");
+			sessionStorage.setItem("k11p","off");
+			sessionStorage.setItem("kaka","off");
+			sessionStorage.setItem("kkr","off");
+			sessionStorage.setItem("lakers","off");
+			sessionStorage.setItem("lampard","off");
+			sessionStorage.setItem("mata","off");
+			sessionStorage.setItem("mi","off");
+			sessionStorage.setItem("nets","off");
+			sessionStorage.setItem("newyork","off");
+			sessionStorage.setItem("orleans","off");
+			sessionStorage.setItem("pacers","off");
+			sessionStorage.setItem("pwi","off");
+			sessionStorage.setItem("ramos","off");
+			sessionStorage.setItem("rcb","off");
+			sessionStorage.setItem("ronaldo","off");
+			sessionStorage.setItem("rooney","off");
+			sessionStorage.setItem("scholes","off");
+			sessionStorage.setItem("srh","off");
+			sessionStorage.setItem("torres","off");
+			sessionStorage.setItem("xavi","off");
+		alert("Successful Login !");
+		window.location.href="aboutus.htm"; 
+	}
+	else
+	{
+		alert("Username or Password Incorrect.. Make sure you are registered with us !");
+		window.location.href="register.htm";
+	}
+  		}
+ 	
+}
+
+
+
+   
+		
+    
+	
+	function show_pic() {
+    navigator.camera.getPicture(dump_pic, fail, {
+        quality : 50
+    });
+	
+	function dump_pic(data) {
+    var viewport = document.getElementById('viewport');
+    console.log(data);
+    viewport.style.display = "";
+    viewport.style.position = "absolute";
+    viewport.style.top = "10px";
+    viewport.style.left = "10px";
+    document.getElementById("img_usr").src = data;
+}
+
+function fail(msg) {
+    alert(msg);
+}
+}
+
+
+</script>
+
+
+</head>
+              
+<script>
+var sessUserName=sessionStorage.getItem("username");
+var elem_login=document.getElementById("loginField");
+var elem_logout=document.getElementById("logoutField");
+if(sessUserName==""|| sessUserName==null)
+	{
+		elem_login.style.visibility="visible";
+		elem_logout.style.visibility="hidden";
+		
+	}
+else
+{
+	elem_login.style.visibility="hidden";
+	elem_logout.style.visibility="visible";
+	document.getElementById("loginwelcome").innerHTML="WELCOME "+sessUserName.toUpperCase();
+}
+
+</script>
+
+
+<body>
+	<align:center>
+	
+
+<div class="logbg">
+	<form id="">
+				
+        		EXISTING USER LOGIN</b>
+			
+            <div id="logoutField"> <input type="submit" class="logout" value="LOGOUT" onClick="logout()" />
+            					   <a href="store.htm"><button type="button">Home</button></a>
+                					<a href="register.htm"><button type="button">Register</button></a>
+                					<a href="cricket.htm"><button type="button">IPL</button></a>
+                					<a href="nba.htm"><button type="button">NBA</button></a>
+               						<a href="football.htm"><button type="button">FOOTBALL</button></a>
+               						<a href="book.htm"><button type="button">CART</button></a>
+                </div>
+                
+				<p id="loginField">
+                <input title="username" name="username" class="username" id="username" placeholder="Username" />
+                <input name="password" type="password" class="password" title="password" id="password" placeholder="Password" />
+                <input type="submit" class="submit" value="LOGIN" tabindex="3" onClick="getAllItems()" />
+                <br></br>
+                <script>
+var sessUserName=sessionStorage.getItem("username");
+var elem_login=document.getElementById("loginField");
+var elem_logout=document.getElementById("logoutField");
+if(sessUserName==""|| sessUserName==null)
+	{
+		elem_login.style.visibility="visible";
+		elem_logout.style.visibility="hidden";
+		
+	}
+else
+{
+	elem_login.style.visibility="hidden";
+	elem_logout.style.visibility="visible";
+	document.getElementById("loginwelcome").innerHTML="WELCOME "+sessUserName.toUpperCase();
+
+}
+
+</script>
+                
+                <a href="store.htm"><button type="button">Home</button></a>
+                <a href="register.htm"><button type="button">Register</button></a>
+                <a href="cricket.htm"><button type="button">IPL</button></a>
+                <a href="nba.htm"><button type="button">NBA</button></a>
+                <a href="football.htm"><button type="button">FOOTBALL</button></a>
+	 </form>
+</div>
+   
+<div class="logno">      <br>
+
+	<p id="reg">FILL IN THE DETAILS BELOW </p>
+	   <br><br><br>
+	   <div id="wrap" >
+		
+	
+			<ul id="contactform">
+
+				<li>
+					<label for="name" >Your Name</label>
+					<span class="fieldbox"><input type="text" name="name" id="name" value=""/></span>
+				</li>
+				
+				
+				<li>
+					<label for="email">Username&nbsp;&nbsp;&nbsp;</label>
+					<span class="fieldbox"><input type="text" name="registerusername" id="registerusername" value=""/></span>
+				</li>
+				<li>
+					<label for="contact">Password&nbsp;&nbsp;&nbsp;</label>
+					<span class="fieldbox"><input type="password" name="registerpassword" id="registerpassword" value=""/></span>
+				</li>
+			</ul>
+			<br>
+			
+			<br><br><br>
+			<p id="sub"><input type="submit" value="Submit" id="sendbutton" name="sendbutton" onClick="addUser()"/></p>
+
+	</div>
+
+</div>
+
+</body>
+</html>

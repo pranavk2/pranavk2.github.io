@@ -1,0 +1,402 @@
+
+
+<html>
+
+<head>
+  <title>BookMyTee.com</title>
+ <link rel="stylesheet" href="book.css">
+  <script>
+ function getAllItems() {
+        var timeLog = ""; //the variable that will hold our html
+        var i = 0;
+        var logLength = localStorage.length-1; //how many items are in the database starting with zero
+		var name=document.getElementById("username").value;
+		var pass=document.getElementById("password").value;
+		if(name==""||name=="Username"||pass=="")
+		{
+		alert("Fields: blank or invalid");
+		}
+		else
+			{
+	  	var r=0;
+        
+		//now we are going to loop through each item in the database
+        for (i = 0; i <= logLength; i++) {
+			
+            //lets setup some variables for the key and values
+            var itemKey = localStorage.key(i);
+            var values = localStorage.getItem(itemKey);
+            values = values.split(";"); //create an array of the values
+            var project = values[0];
+            
+            var date = values[1];
+			
+			if(name==project && date==pass)
+			{
+				r=1;
+			}
+        }
+		if(r==1)
+		{
+			sessionStorage.setItem("username",name);
+			
+			alert("Successful Login !");
+			window.location.href="book.htm"; //this wont work :(((((((
+		}
+		else
+		{
+			alert("Username or Password Incorrect.. Make sure you are registered with us !");
+			window.location.href="book.htm";
+		}
+			}
+	 	
+    }
+   
+</script>
+  <script>
+  function viewCart()
+  {
+	  var i=0;
+	  var res="";
+	  var ctr=0;
+	  for(i=0;i<sessionStorage.length;i++)
+		  {
+		  	var itemKey=sessionStorage.key(i);
+		  	var arr=sessionStorage.getItem(itemKey);
+		  	if(arr=="on")
+		  		{
+		  		res=res+" "+itemKey;
+		  		ctr++;
+		  		}
+		  }
+	  if(res=="")
+		  {
+	  document.getElementById("result").innerHTML="EMPTY BASKET";
+	  document.getElementById("count").innerHTML=0;
+		  }
+	  else
+		  {
+		  document.getElementById("result").innerHTML=res;
+		  document.getElementById("count").innerHTML=ctr;
+		  }
+	  
+	  
+  }
+ 
+	function buy()
+	{
+		var i=0,itemKey,value,r=0;
+		for(i=0;i<sessionStorage.length;i++)
+			{
+				itemKey=sessionStorage.key(i);
+				value=sessionStorage.getItem(itemKey);
+				if(value=="on")
+					{
+					r=1;
+					}
+			}
+		if(r==0)
+			{
+			alert("cart is empty!!")
+			window.location.href="book.htm";
+			}
+		else
+		{
+		window.location.href="checkout.html";
+		}
+	}
+function logout()
+	
+	{
+		var i,itemKey,value,r=0;
+		for(i=0;i<sessionStorage.length;i++)
+			{
+			itemKey=sessionStorage.key(i);
+			value=sessionStorage.getItem(itemKey);
+			if(value=="on")
+				{
+				r=1;
+				}
+			}
+		if(r==1)
+			{
+	  var answer=confirm("Your cart will be emptied.. You sure want to logout?");
+		if(answer==true)		
+	{			
+		sessionStorage.removeItem("bulls");
+			sessionStorage.removeItem("celtics");
+			sessionStorage.removeItem("clippers");
+			sessionStorage.removeItem("csk");
+			sessionStorage.removeItem("dd");
+			sessionStorage.removeItem("heats");
+			sessionStorage.removeItem("iniesta");
+			sessionStorage.removeItem("k11p");
+			sessionStorage.removeItem("kaka");
+			sessionStorage.removeItem("kkr");
+			sessionStorage.removeItem("lakers");
+			sessionStorage.removeItem("lampard");
+			sessionStorage.removeItem("mata");
+			sessionStorage.removeItem("mi");
+			sessionStorage.removeItem("nets");
+			sessionStorage.removeItem("newyork");
+			sessionStorage.removeItem("orleans");
+			sessionStorage.removeItem("pacers");
+			sessionStorage.removeItem("pwi");
+			sessionStorage.removeItem("ramos");
+			sessionStorage.removeItem("rcb");
+			sessionStorage.removeItem("ronaldo");
+			sessionStorage.removeItem("rooney");
+			sessionStorage.removeItem("scholes");
+			sessionStorage.removeItem("srh");
+			sessionStorage.removeItem("torres");
+			sessionStorage.removeItem("xavi");
+		sessionStorage.setItem("username","");
+		alert("successfully logged out");
+		window.location.href="store.htm";
+	}
+		else
+			{
+				alert("Please Checkout !!");	
+				window.location.href="book.htm"
+			}
+			}
+		else
+			{
+			sessionStorage.removeItem("bulls");
+			sessionStorage.removeItem("celtics");
+			sessionStorage.removeItem("clippers");
+			sessionStorage.removeItem("csk");
+			sessionStorage.removeItem("dd");
+			sessionStorage.removeItem("heats");
+			sessionStorage.removeItem("iniesta");
+			sessionStorage.removeItem("k11p");
+			sessionStorage.removeItem("kaka");
+			sessionStorage.removeItem("kkr");
+			sessionStorage.removeItem("lakers");
+			sessionStorage.removeItem("lampard");
+			sessionStorage.removeItem("mata");
+			sessionStorage.removeItem("mi");
+			sessionStorage.removeItem("nets");
+			sessionStorage.removeItem("newyork");
+			sessionStorage.removeItem("orleans");
+			sessionStorage.removeItem("pacers");
+			sessionStorage.removeItem("pwi");
+			sessionStorage.removeItem("ramos");
+			sessionStorage.removeItem("rcb");
+			sessionStorage.removeItem("ronaldo");
+			sessionStorage.removeItem("rooney");
+			sessionStorage.removeItem("scholes");
+			sessionStorage.removeItem("srh");
+			sessionStorage.removeItem("torres");
+			sessionStorage.removeItem("xavi");
+			sessionStorage.setItem("username","");
+			alert("successfully logged out");
+			window.location.href="store.htm";
+			
+			}
+}
+  
+
+</script>
+</head>
+
+<body>
+<div id="login">
+        <div id="loginwelcome">EXISTING USER LOGIN</div></b>
+			
+            
+                <div id="logoutField"> <input type="submit" class="logout" value="LOGOUT" onClick="logout()" /></div>
+		
+		<p id="loginField">
+                <input title="username" name="username" class="username" id="username" placeholder="Username" />
+                <input name="password" type="password" class="password" title="password" id="password" placeholder="Password" />
+               <input type="submit" class="submit" value="LOGIN" tabindex="3" onClick="getAllItems()" />
+                
+                <a href="register.htm" >New User? Register Here.</a></p>
+               <a href="store.htm"><button type="button">Home</button></a>
+               <a href="register.htm"><button type="button">Register</button></a>
+                <a href="cricket.htm"><button type="button">IPL</button></a>
+                <a href="nba.htm"><button type="button">NBA</button></a>
+                <a href="football.htm"><button type="button">FOOTBALL</button></a>
+                <a href="book.htm"><button type="button">CART</button></a>
+                <img src="cart.png"align=right width="300" height="300">
+                
+                
+            <script>
+var sessUserName=sessionStorage.getItem("username");
+var elem_login=document.getElementById("loginField");
+var elem_logout=document.getElementById("logoutField");
+if(sessUserName=="" || sessUserName==null)
+	{
+		elem_login.style.visibility="visible";
+		elem_logout.style.visibility="hidden";
+		
+	}
+else
+{
+	elem_login.style.visibility="hidden";
+	elem_logout.style.visibility="visible";
+	document.getElementById("loginwelcome").innerHTML="WELCOME "+ sessUserName;
+}
+
+</script>
+        </div>
+    </div>
+
+            
+    <div id="content">
+	<br><br>
+	<center>
+	<div id="pro">PROFILE INFO</div><center>
+	<br><br><br><br><br>
+	<div>
+	<script>
+	
+		var sessUser=sessionStorage.getItem("username");
+		var sessFullname="";
+		var sessDOB="";
+		var sessFC="";
+		var logLength=localStorage.length-1;
+	for(j=0;j<=logLength;j++)
+		{
+			var itemKey = localStorage.key(j);
+			var arr = localStorage.getItem(itemKey);
+			arr = arr.split(";");
+			var ex_user = arr[0];
+			if(ex_user==sessUser)
+			{
+				
+				sessFullname=arr[2];
+				sessDOB=arr[3];
+				sessFC=arr[4];
+			}
+		}
+	</script>
+	<b>
+	<center>
+	<div id="details"> 
+	<table cellpadding="5" align="center" class="display" style="font-family:serif; font-size: 30px; color:black" width="100%">
+            
+              
+				  <tr>
+                <td valign="top" align="left">Basket Contents</td>
+               <td class="cont"> <div id="result">
+               <script>
+               var i=0;
+         	  var res="";
+         	  var ctr=0;
+         	  for(i=0;i<sessionStorage.length;i++)
+         		  {
+         		  	var itemKey=sessionStorage.key(i);
+         		  	var arr=sessionStorage.getItem(itemKey);
+         		  	if(arr=="on")
+         		  		{
+         		  		res=res+" "+itemKey;
+         		  		ctr++;
+         		  		}
+         		  }
+         	  if(res=="")
+         		  {
+         	  document.write("EMPTY BASKET");
+         	  //document.getElementById("count").innerHTML=0;
+         		  }
+         	  else
+         		  {
+         		  document.write(res);
+         		//  document.getElementById("count").innerHTML=ctr;
+         		  }
+               
+               </script>
+               
+               </div></td>
+				</tr>
+				 <tr>
+                <td valign="top"  align="left">Count</td>
+               <td class="cont"><div id="count">
+                 <script>
+               var i=0;
+         	  var res="";
+         	  var ctr=0;
+         	  for(i=0;i<sessionStorage.length;i++)
+         		  {
+         		  	var itemKey=sessionStorage.key(i);
+         		  	var arr=sessionStorage.getItem(itemKey);
+         		  	if(arr=="on")
+         		  		{
+         		  		res=res+" "+itemKey;
+         		  		ctr++;
+         		  		}
+         		  }
+         	  if(res=="")
+         		  {
+         	  document.write("0");
+         	  //document.getElementById("count").innerHTML=0;
+         		  }
+         	  else
+         		  {
+         		  document.write(ctr);
+         		//  document.getElementById("count").innerHTML=ctr;
+         		  }
+               
+               </script>
+               
+               </div></td>
+				</tr>
+				<tr>
+                <td valign="top"  align="left">Amount</td>
+               <td class="cont"><div id="amt">
+               <script>
+               var i=0;
+         	  var res="";
+         	  var ctr=0;
+         	  var amt=0;
+         	  for(i=0;i<sessionStorage.length;i++)
+         		  {
+         		  	var itemKey=sessionStorage.key(i);
+         		  	var arr=sessionStorage.getItem(itemKey);
+         		  	if(arr=="on")
+         		  		{
+         		  		res=res+" "+itemKey;
+         		  		ctr++;
+         		  		}
+         		  }
+         	  if(res=="")
+         		  {
+         	  document.write("0");
+         	  //document.getElementById("count").innerHTML=0;
+         		  }
+         	  else
+         		  {
+         		  document.write("Rs. "+ ctr*500);
+         		//  document.getElementById("count").innerHTML=ctr;
+         		  }
+               
+               </script>
+               
+               
+               </div></td>
+				</tr>
+				
+				</table>
+		
+	</div> 
+	<br><br><br><br>
+   
+	<center>
+	<input type="submit" value="CHECKOUT" onClick="buy()"> 
+	</center>
+	 
+	 <br><br>
+		
+   <br><br><br>
+</div>
+</center>
+</b>
+    </div>
+	
+    <div id="footer">
+        <div id="copyright">    </div>
+</div>
+
+</body>
+</html>

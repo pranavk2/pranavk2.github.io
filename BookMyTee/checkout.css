@@ -1,0 +1,19 @@
+
+body{
+	background-image:url(bckimg6.jpg);
+
+}
+p
+{
+	outline-width: 5px;
+	outline-style: solid;
+	font-family: Times;
+	font-size: 27px;
+	font-style: italic;
+
+}
+
+.check{
+	margin-left: 600px;
+	text-align: right;
+}

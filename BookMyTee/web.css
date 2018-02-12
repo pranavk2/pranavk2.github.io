@@ -1,0 +1,33 @@
+
+title{
+	background-color: blue;
+	font-family: verdana;
+	font-size: 60px;
+}
+h1{
+	outline-color: red;
+	outline-style: verdana;
+	outline-width: 1px;
+
+}
+a{
+	color: green;
+	font-family: arial;
+	font-size: 30px;
+}
+a:visited{
+	color: blue;
+	font-size: 20px;
+	font-family: verdana;
+}
+a:hover{
+	background-color: yellow;
+	font-size: 35px;
+	font-family: italic;
+}
+ol{
+	list-style-type: upper-roman;
+}
+ul{
+	list-style-type: square;
+}

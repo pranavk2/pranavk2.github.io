@@ -1,0 +1,35 @@
+h1{
+	color:indigo;
+	font-size: 50px;
+	font-family:serif;
+	 
+
+}
+h4{
+	outline-color: blue;
+	font-size:15px;
+	font-family: serif;
+	font-style: italic;
+}
+p{
+	font-family: georgia;
+	font-style: italic;
+}
+body{
+	background-image: url(backgr3.jpg);
+}
+
+}
+#backg{
+	background-image:url(backgr.jpg); 
+	}
+ #anime
+ {
+ 	margin-left: 375px }
+ 	#online{
+ 		margin-left: 232px;
+ 		font-size: 25px;
+ 	}
+ 	#login{
+ 		background-image: url(backgr.jpg);
+ 	}

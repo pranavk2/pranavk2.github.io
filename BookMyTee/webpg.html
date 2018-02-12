@@ -1,0 +1,75 @@
+<html>
+
+<head>
+	<title align=center>Welcome to our page </title>
+	<link rel="stylesheet" href="webpg.css"/>
+	<!--<script type="text/javascript" src="jq.js"></script>-->
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		   $('div').mouseenter(function() {
+		       $(this).animate({
+		           height: '+=10px'
+		       });
+		   });
+		   $('div').mouseleave(function() {
+		       $(this).animate({
+		           height: '-=10px'
+		       }); 
+		   $('div').click(function() {
+		       $(this).toggle(1000);
+   }); 
+});
+   });
+	</script>	
+</head>
+<body>
+
+<h1 align=center class="sem1">Pranav and Amit</h1>
+<p>
+<img src="wel.jpg" align=center>
+</p>
+<p>Hi,we're 1st year students of Electrical Engg.,IIT Kanpur. We live in Hall 3, 3 bot.</p>
+<p>Our Subjects:-</p>
+<ul >
+<li>MTH101</li>
+<ol>
+<li>P. Shunmugaraj, our instructer </li>
+<li>11 Credits</li>
+</ol>
+<li>LIF101</li>
+<ol>
+<li>B. Prakash, our instructer </li>
+<li>6 Credits</li>
+</ol>
+<li>PHY102</li>
+<ol>
+<li>M.K.Verma, our instructer </li>
+<li>11 Credits</li>
+</ol>
+<li>TA101</li>
+<ol>
+<li>N.N.Kishore, our instructer </li>
+<li>9 Credits</li>
+</ol>
+<li>SOC171A</li>
+<ol>
+<li>A.K.Sharma, our instructer </li>
+<li>11 Credits</li>
+</ol>
+</ul>
+<h3>Our favourite websites</h3>
+<a href="http://www.upsc.gov.in">UPSC</a>
+<a href="http://www.imdb.com">IMDB</a>
+<a href="http://www.pib.nic.in">PIB</a>
+<p>Do you want to buy T-shirts?
+<div style="color:#0000FF">
+  <h3>Yes</h3>
+  <p>No</p>
+</div>
+		<div id="red"></div>
+        <div id="blue"></div>
+        <div id="yellow"></div>
+        <div id="green"></div>
+</body>
+</html>

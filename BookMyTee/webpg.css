@@ -1,0 +1,64 @@
+
+body{
+
+background-color: silver;
+background-image:url("bck.jpg");
+color: black;
+}
+	title{
+	background-color: blue;
+	font-family: verdana;
+	font-size: 60px;
+}
+h1{
+	outline-color: red;
+	outline-style: verdana;
+	outline-width: 1px;
+
+}
+a{
+	color: green;
+	font-family: arial;
+	font-size: 30px;
+}
+a:visited{
+	color: blue;
+	font-size: 20px;
+	font-family: verdana;
+}
+a:hover{
+	
+	font-size: 35px;
+	font-family: italic;
+}
+ol{
+	list-style-type: upper-roman;
+}
+ul{
+	list-style-type: square;
+}
+.sem1{
+	background-color: silver;
+	font-family: lucida;
+}
+div {
+    height:100px;
+    width:100px;
+    display: inline-block;
+}
+
+#red {
+    background-color:#FF0000;
+}
+
+#blue {
+    background-color:#0000FF;
+}
+
+#yellow {
+    background-color:#E2BE22;
+}
+
+#green {
+    background-color:#008800;
+}

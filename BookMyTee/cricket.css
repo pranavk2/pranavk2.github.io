@@ -1,0 +1,25 @@
+
+body{
+	background-image: url(backgr3.jpg);
+}
+p
+{
+	outline-width: 5px;
+
+	font-family: Times;
+	font-size: 27px;
+	font-style: italic;
+
+}
+
+.check{
+	margin-left: 600px;
+	text-align: right;
+}
+
+#login{
+	background-image: url(backgr.jpg);
+}
+#team{
+	margin-left: 1090px
+}
